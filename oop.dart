@@ -27,13 +27,19 @@ class Car {
   String? make;
   double? price;
   dynamic speed;
+  bool? bought = false;
 
-  Car(this.make, this.price, [this.speed = 'N/A']);
+  //Constructor with Named Parameters
+  Car({this.make, this.price, this.speed = 'N/A'});
+
+  Car.buy({this.make, this.price, this.speed, this.bought});
 
   void display() {
-    print('Price: $price M');
+    print('Price: ${this.price} M');
     print('Make: ${this.make}');
     print('Speed: ${this.speed}');
+    print('Bought: ${this.bought}');
+    print('------------------');
   }
 }
 
@@ -42,7 +48,10 @@ void main() {
 
   //   Person p2 = Person(name: 'Miraa', age: 12, address: 'home@example');
 
-  Car car = Car('GLE', 1.5, 200);
+  Car car = Car(make: 'GLE', price: 1.5, speed: 200);
 
   car.display();
+
+  Car myCar = Car.buy(bought: true, make: 'GLE', price: 1.5, speed: 200);
+  myCar.display();
 }
