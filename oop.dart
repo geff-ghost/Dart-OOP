@@ -27,12 +27,13 @@ class Car {
   String? make;
   double? price;
   dynamic speed;
-  bool? bought = false;
+  bool bought = false;
 
   //Constructor with Named Parameters
   Car({this.make, this.price, this.speed = 'N/A'});
 
-  Car.buy({this.make, this.price, this.speed, this.bought});
+  //Named Constructor
+  Car.buy({this.make, this.price, this.speed, required this.bought});
 
   void display() {
     print('Price: ${this.price} M');
